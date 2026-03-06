@@ -7,12 +7,18 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+library(readr)
+getwd()
+d_socialmedia <-read.csv('../data/BES-2017-f2f-gender-fb-tw.csv')
 ```
 
+# Hypothesis
+H1 Gender is associated with Facebook use
 
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+chisq.test(
+  d_socialmedia$Gender,
+  d_socialmedia$Use_Facebook
+)
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
